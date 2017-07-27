@@ -4,7 +4,7 @@ Given(/^I have created a "(.*)" workspace$/) do |name_workspace|
   @http_response, @workspace = WorkspacesPost.call_and_return_response(@client, 'POST', json)
 end
 
-When(/^I send a (GET) request to WorkspacesGet endpoint$/) do |method|
+When(/^I send a (GET) request to services endpoint$/) do |method|
   require_relative '../../../features/support/requests/Workspaces/workspaces_get'
   @http_response = WorkspacesGet.call_and_return_response(@client, method)
 end
