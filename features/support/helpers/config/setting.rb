@@ -1,6 +1,6 @@
 require 'yaml'
 
-class Configuration
+class Setting
 
   attr_accessor :name, :dir_path, :values
 
@@ -18,13 +18,7 @@ class Configuration
     self
   end
 
-  # Get values from the yaml data.
-  # The path is slash-separated node-names in the yaml; if omitted gets all.
-  # Example path:  'account/name'.
-  # If values is given, it must be something that was returned elsewhere by this very method.
-  # In other words, it must be a sub-element of some previous @values.
-  # Thus, you can do this:
-  #   account_name = config.get('account/name')
+   #   account_name = config.get('account/name')
   def get(path = '', values = @values)
     # Path comes in as 'foo/bar/baz'
     # whose tokens refer to nested sections in the yaml.

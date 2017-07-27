@@ -2,13 +2,13 @@
 require 'net/http'
 require 'openssl'
 
-require_relative '../config/configuration'
+require_relative '../config/setting'
 require_relative '../data_helper'
 
 class ApiRestClient
 
   def initialize
-    @config = Configuration.new
+    @config = Setting.new
     @base_url = @config.get('url')
     @time_out = @config.get('time_out')
 

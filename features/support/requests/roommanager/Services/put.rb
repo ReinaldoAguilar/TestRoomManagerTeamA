@@ -1,4 +1,4 @@
-class WorkspacesPut
+class Put
   def self.call_and_return_response(client, method, json, workspace)
     end_point = "/my/workspaces/#{workspace}"
     http_request = client.get_request(method, end_point)

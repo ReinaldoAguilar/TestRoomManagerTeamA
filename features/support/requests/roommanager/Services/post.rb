@@ -1,4 +1,4 @@
-class WorkspacesPost
+class Post
   def self.call_and_return_response(client, method, json)
     require_relative '../../../../features/support/data/workspaces'
     end_point = 'my/workspaces'
