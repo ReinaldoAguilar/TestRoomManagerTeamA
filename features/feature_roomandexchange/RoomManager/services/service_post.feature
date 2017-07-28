@@ -3,7 +3,7 @@ Feature: Meeting
   Background:
     Given I request POST "/suscription" with:
       | name | project_test |
-    When I request POST "/services" with:
+    When I request POST "services" with:
       | name | project_test |
     And I request POST "/room" with:
       | name | project_test |

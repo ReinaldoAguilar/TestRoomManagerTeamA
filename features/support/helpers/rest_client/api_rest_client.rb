@@ -19,6 +19,7 @@ module ApiRestClient
   #
   def ApiRestClient.get_connection
       uri = URI.parse(@base_url)
+      @hostname ='hostname='+ uri.host
       http_connection = nil
       http_connection = Net::HTTP.new(uri.host, uri.port)
       # http_connection.use_ssl = true
@@ -28,8 +29,8 @@ module ApiRestClient
   end
 
   def ApiRestClient.get_request(url)
-    p url
-    url =  @base_url + url
+
+    url =  @base_url + url #{@hostname}
     uri = URI.parse(url)
     request = Net::HTTP::Get.new(uri)
 
@@ -69,7 +70,7 @@ module ApiRestClient
 
     # request.basic_auth(@account_name, @password)
     # request.add_field('X-TrackerToken', @token)
-    # request.add_field('content-type', 'application/json')
+    request.add_field('content-type', 'application/json')
     # request.add_field('accept', 'application/json')
 
     http = get_connection
