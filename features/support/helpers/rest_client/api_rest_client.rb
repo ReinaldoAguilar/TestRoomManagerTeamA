@@ -22,6 +22,8 @@ module ApiRestClient
   #
   def ApiRestClient.get_connection
       uri = URI.parse(@base_url)
+      @hostname ='hostname='+ uri.host
+      http_connection = nil
       http_connection = Net::HTTP.new(uri.host, uri.port)
       http_connection.read_timeout = @time_out
       http_connection
@@ -45,6 +47,7 @@ module ApiRestClient
   end
 
   def ApiRestClient.post(url, body)
+    request = nil
     url =  @base_url + url
     uri = URI.parse(url)
     request = Net::HTTP::Post.new(uri)
@@ -62,6 +65,12 @@ module ApiRestClient
     request = Net::HTTP::Put.new(uri)
     request.set_form_data(body)
     request.add_field('Exchange_Credentials', @Exchange_Credentials)
+
+    # request.basic_auth(@account_name, @password)
+    # request.add_field('X-TrackerToken', @token)
+    request.add_field('content-type', 'application/json')
+    # request.add_field('accept', 'application/json')
+
     http = get_connection
     response = http.request(request)
     return response

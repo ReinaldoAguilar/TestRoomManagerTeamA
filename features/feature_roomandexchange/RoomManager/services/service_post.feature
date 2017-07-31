@@ -1,4 +1,4 @@
-Feature: Services
+Feature: Meeting
 
   Scenario: Create Service
     When I request POST "/services" with:
