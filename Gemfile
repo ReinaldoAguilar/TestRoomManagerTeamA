@@ -9,4 +9,4 @@ gem 'cucumber'
 # Rspec gem
 gem 'rspec'
 
-gem "json-schema"
+gem 'json-schema'

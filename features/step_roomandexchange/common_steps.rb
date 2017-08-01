@@ -1,6 +1,6 @@
 require 'rspec'
 require 'json'
-require "json-schema"
+require 'json-schema'
 # require require_relative "../support/requests/roommanager/schema/meeting"
 
 Given(/^I have set a connection to pivotal_tracker API service$/) do
@@ -13,32 +13,29 @@ Then(/^I expect Status code (\d+) for the SmokeTest$/) do |http_code|
 end
 
 And(/^I espect format :$/) do |http|
-    value=@http_response.body
-   json = JSON.parse(value)
-   rtr = JSON.parse(http)
-     # json.to_s == rtr.to_s
-    expect(json.to_s).to include(rtr.to_s)
-
-
+  value = @http_response.body
+  json = JSON.parse(value)
+  rtr = JSON.parse(http)
+  # json.to_s == rtr.to_s
+  expect(json.to_s).to include(rtr.to_s)
 end
 
-
-
 And(/^I  format table schema format$/) do
-   p value =@http_response.body
-   # p @http_response.body.code
+  p @http_response.body
+  # p @http_response.body.code
   # p json = JSON.parse(value)
 
-   schema_directory = "#{Dir.pwd}/features/feature_roomandexchange/RoomManager/schema"
+  schema_directory = "#{Dir.pwd}
+/features/feature_roomandexchange/RoomManager/schema"
   p schema_path = "#{schema_directory}/meeting.json"
-   JSON::Validator.validate(schema_path, @http_response.body)
-   # JSON::Validator.validate!(schema_path, value, strict: true)
+  JSON::Validator.validate(schema_path, @http_response.body)
+  # JSON::Validator.validate!(schema_path, value, strict: true)
 
   # expect(response.status).to eq(200)
   # expect(@http_response).to match_response_schema(:charge)
   # expect(response).to match_json(<<-JSON)
- # p  file = File.open('meeting.json')
- #  p file.read
+  # p  file = File.open('meeting.json')
+  #  p file.read
   # JSON::Validator.validate('meeting.json', '{"a" : 5}')
   # expect(json).to match_response_schema("meeting")
 end
