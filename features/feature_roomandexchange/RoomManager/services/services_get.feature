@@ -8,6 +8,7 @@ Feature: Test
       | exchange_credentials | QWRtaW5pc3RyYXRvcjpBQkMxMjN9  |
       | exchange_calendar    | Administrator@arabitpro.local |
     Then I expect Status code 200 for the SmokeTest
+    And I  format table schema format "services"
 
 
 

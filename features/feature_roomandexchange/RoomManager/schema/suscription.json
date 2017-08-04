@@ -1,0 +1,22 @@
+//{
+//  "host": "localhost",
+//  "port": 7070,
+//  "notificationUrl": "/api/v1/notifications"
+//}
+{
+
+    "type": "object",
+    "properties": {
+      "host": {
+        "type": "string"
+      },
+      "port": {
+        "type": "number"
+      },
+      "notificationUrl": {
+        "type": "string"
+      },
+      "required":["host","port","type"]
+      }
+
+}

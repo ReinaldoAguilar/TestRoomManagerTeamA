@@ -27,15 +27,25 @@ And(/^I  format table schema format$/) do
 
   schema_directory = "#{Dir.pwd}
 /features/feature_roomandexchange/RoomManager/schema"
-  p schema_path = "#{schema_directory}/meeting.json"
+  p schema_path = "#{schema_directory}/RMmeeting.json"
   JSON::Validator.validate(schema_path, @http_response.body)
   # JSON::Validator.validate!(schema_path, value, strict: true)
 
   # expect(response.status).to eq(200)
   # expect(@http_response).to match_response_schema(:charge)
   # expect(response).to match_json(<<-JSON)
-  # p  file = File.open('meeting.json')
+  # p  file = File.open('RMmeeting.json')
   #  p file.read
-  # JSON::Validator.validate('meeting.json', '{"a" : 5}')
+  # JSON::Validator.validate('RMmeeting.json', '{"a" : 5}')
   # expect(json).to match_response_schema("meeting")
+end
+
+And(/^I  format table schema format "([^"]*)"$/) do |data|
+  p value =@http_response.body
+
+  schema_directory = "#{Dir.pwd}/features/feature_roomandexchange/RoomManager/schema"
+  p schema_path = "#{schema_directory}/#{data}.json"
+  JSON::Validator.validate(schema_path, @http_response.body)
+
+  JSON::Validator.fully_validate(schema_path, @http_response.body)
 end

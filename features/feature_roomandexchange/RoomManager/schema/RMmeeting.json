@@ -42,7 +42,9 @@
         "items": {
           "type": "string"
         }
-      }
+      },
+      "required":["_id","organizer","owner","subject","body",
+        "start","end","rooms","attendees","optionalAttendees"]
     }
 
   }
