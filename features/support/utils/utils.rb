@@ -1,28 +1,29 @@
-require_relative '../../../features/support/utils/store_variables'
 
-class Utils
+module Utils
 
-  include StoreVariables
-
-  def getKeyObjectFromListByName(varName, key)
+  def Utils.getValueFromService(varName, key)
     name_variable = StoreVariables.getName
-    name_variable.eql?(varName)
-    value_result = StoreVariables.getAttribute_value(key)
+    if name_variable.eql?(varName)
+      value_result = StoreVariables.getAttribute_value(key)
+    end
     return value_result
   end
 
-  def builEndpoint(endpoint)
-    point = endpoint.to_s.split("/")
-    point.each do |value|
-      if /[(.*?)]/.match(value)
-        parametersParts = value.to_s.split("\.", 2)
-        replaceParameter = getKeyObjectFromListByName(parametersParts[0],
-                                                      parametersParts[1])
-        value.to_s.replace (replaceParameter.to_s)
+  def Utils.builEndpoint(endpoint)
+    newEndpoint = nil
+    endpoint_split = endpoint.to_s.split("/")
+    endpoint_split.each do |value|
+      if /[(.)]/.match(value)
+        value
+        services_split = value.to_s.split("\.", 2)
+        value_service = getValueFromService(services_split[0],
+                                            services_split[1])
+        value.to_s.replace (value_service.to_s)
       end
-      @newEndpoint = @newEndpoint.to_s + value.to_s + "/".to_s
+      newEndpoint = newEndpoint.to_s + value.to_s + "/".to_s
+      p newEndpoint
     end
-    return @newEndpoint
+    return newEndpoint
   end
 end
 

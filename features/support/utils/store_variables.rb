@@ -6,9 +6,10 @@ module StoreVariables
   end
   def StoreVariables.getAttribute_value(key)
     @result_value = JSON.parse @hash_values.gsub('=>', ':')
-    p result = @result_value[key]
+    result = @result_value[key]
+    return result
   end
   def StoreVariables.getName
-     @name
+    @name
   end
 end

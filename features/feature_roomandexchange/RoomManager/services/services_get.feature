@@ -2,7 +2,7 @@ Feature: Test
 
   Scenario: Test 3 schema
     Given I have set a connection to pivotal_tracker API service
-    When I request GET "services"
+    When I request GET "/services"
     And With the following headers:
       | content_type         | application/json              |
       | exchange_credentials | QWRtaW5pc3RyYXRvcjpBQkMxMjN9  |

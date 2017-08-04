@@ -1,7 +1,3 @@
-#Add the library for HTTP
-
-require_relative '../../../support/helpers/config/setting'
-require_relative '../data_helper'
 
 module ApiRestClient
 
@@ -20,7 +16,7 @@ module ApiRestClient
       when 'GET'
         request = Net::HTTP::Get.new(uri)
       else
-        # Nothing to do
+        puts "The method was not found, insert a right method"
     end
     request
   end
