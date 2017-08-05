@@ -1,0 +1,45 @@
+//[
+//  {
+//    "_id": "58e2d1c147c06b1e4861e901",
+//    "hostname": "felines.animals.com",
+//    "name": "Microsoft Exchange Server 2010 SP3",
+//    "type": "ExchangeServer",
+//    "username": "cat",
+//    "version": "14.3 (Build 30123.4)",
+//    "deleteLockTime": 10
+//  }
+//]
+
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string"
+      },
+      "hostname": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "deleteLockTime": {
+        "type": "number"
+      },
+      "required":["_id","hostname","name", "type","username"
+      ,"version","deleteLockTime"]
+
+    }
+
+  }
+}
