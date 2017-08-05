@@ -1,5 +1,5 @@
 room-manager:
-  url: http://10.28.106.225
+  url: http://10.28.124.152
   port: 3000
   time_out: 180
   urlenpoint: api/v1/
@@ -9,7 +9,7 @@ default_headers:
     exchange_calendar: Administrator@arabitpro.local
     content_type: application/json
 ex-change:
-  url: http://10.28.106.225
+  url: http://10.28.124.152
   port: 3000
   time_out: 180
   url: api/v1/
