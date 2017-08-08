@@ -17,10 +17,12 @@ module Utils
         value
         services_split = value.to_s.split("\.", 2)
         value_service = getValueFromService(services_split[0],
-                                            services_split[1])
-        value.to_s.replace (value_service.to_s)
+                                               services_split[1])
+        newEndpoint +="/".to_s
+        newEndpoint +=value.to_s.replace (value_service.to_s)
+      else
+      newEndpoint = newEndpoint.to_s + value.to_s
       end
-      newEndpoint = newEndpoint.to_s + value.to_s + "/".to_s
       p newEndpoint
     end
     return newEndpoint

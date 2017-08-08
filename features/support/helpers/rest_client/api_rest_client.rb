@@ -3,7 +3,9 @@ module ApiRestClient
 
   def ApiRestClient.get_request(method, url)
     request = nil
-    url = "#{$base_url}:#{$port}/#{$urlenpoint}#{url}"
+    p $port
+    url = "#{$base_url}:#{$port}/#{$urlenpoint}/#{url}"
+    p url
     uri = URI.parse(url)
 
     case method
@@ -22,7 +24,8 @@ module ApiRestClient
   end
 
   def ApiRestClient.body(request, body)
-    request.set_form_data(body)
+    request.body = body.to_json
+    request[ "Content-Type"] = $content_type
   end
 
   def ApiRestClient.headers (request, values)

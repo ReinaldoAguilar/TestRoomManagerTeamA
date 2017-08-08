@@ -1,16 +1,18 @@
 room-manager:
-  url: http://10.28.124.152
-  port: 3000
+  url: http://localhost
+  port: 7070
   time_out: 180
-  urlenpoint: api/v1/
+  urlenpoint: api/v1
   hostname_domain: server2012dc.arabitpro.local
+
 default_headers:
     exchange_credentials: QWRtaW5pc3RyYXRvcjpBQkMxMjN9
     exchange_calendar: Administrator@arabitpro.local
     content_type: application/json
+
 ex-change:
   url: http://10.28.124.152
   port: 3000
   time_out: 180
-  url: api/v1/
-  exchange_credentials: QWRtaW5pc3RyYXRvcjpBQkMxMjN9
+  urlenpoint: api/v1
+  hostname_domain: server2012dc.arabitpro.local

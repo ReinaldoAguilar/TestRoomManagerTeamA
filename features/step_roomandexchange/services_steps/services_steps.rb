@@ -1,9 +1,8 @@
 
 
 When(/^I request (POST|PUT) "([^"]*)" with:$/) do |method, endpoint, table|
-
   buildEndpoint = Utils.builEndpoint(endpoint)
-  @http_request = ApiRestClient.get_request( method, buildEndpoint)
+  @http_request = ApiRestClient.get_request(method, buildEndpoint)
   ApiRestClient.body(@http_request, table.rows_hash)
   @http_response = ApiRestClient.execute_request(@http_request)
   puts @http_response.body
@@ -23,7 +22,6 @@ And(/^With the following headers:$/) do |table|
 end
 
 And(/^I stored as \[([^"]*)\]$/) do |variableName|
-
   puts "dfsfsdfsdfsdf?  #{@http_response.body} asfdfs"
   StoreVariables.settings(variableName, @http_response.body)
 end
