@@ -17,6 +17,8 @@ Feature: Exchange Services
     Then I expect status code 200
 
      #schema
+    And I verify the expected schema for "services"
+    And I save response
      #equals
      #equivalents
      #dependency
@@ -30,6 +32,8 @@ Feature: Exchange Services
     When I execute the request
       And I verify the data received is according previous POST response
     Then I expect status code 200
+    And I verify the expected schema for "services"
+    And I verify equivalence with previous response saved
 
 
 #  Scenario: Get Service

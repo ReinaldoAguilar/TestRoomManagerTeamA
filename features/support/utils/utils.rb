@@ -26,7 +26,7 @@ module Utils
 
   def Utils.getPathEschema(service_name)
 
-     schema= "#{$schema_directory}/#{$type}/#{service_name}.json"
+    schema_path = $value=="GET"? "#{$schema_directory}/#{$type}/#{service_name}.json":"#{$schema_directory}/#{$type}/post#{service_name}.json"
   end
 
   def Utils.builEndpoitGet(endpoint, values_service)

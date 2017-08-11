@@ -25,13 +25,20 @@ Then(/^I verify the data received is according previous POST response$/) do
 end
 
 And(/^I verify the expected schema for "([^"]*)"$/) do |service_name|
-  schema_path = Utils.getPathEschema service_name
-  #add helper/class/module to Schema validation
-  #def Schema.equal?(schema_path, response )
-  #  JSON::Validator.validate!(schema_path, response)
-  #end
-  #
-  expect(Schema.equal?(schema_path,@http_response.body)).to_be true
+  schema_path= Utils.getPathEschema service_name
+  expect(JSON::Validator.validate!(schema_path, @http_response.body,)).equal?true
+
 
 end
 
+
+
+
+
+
+And(/^I verify equivalence with previous response saved$/) do
+  value= DataHelper.equivalence_response @http_response.body
+  puts hola=JSON.parse(@http_response.body)
+  puts valu = JSON.parse(@http_response.body)
+  expect( valu[DataHelper.found_id(hola)]).to include( value)
+end

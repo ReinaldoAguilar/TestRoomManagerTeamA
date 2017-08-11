@@ -1,0 +1,33 @@
+//{
+//  "_id": "598b8b027bd9bc0cd453e12d",
+//  "type": "ExchangeServer",
+//  "name": "Exchange Server 2016",
+//  "version": "15.1 (Build 30225.42)",
+//  "deleteLockTime": 10
+//}
+{
+
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+
+    "version": {
+      "type": "number"
+    },
+    "deleteLockTime": {
+      "type": "number"
+    },
+
+    "required":["name","_id","type","version"
+    ,"deleteLockTime"]
+  }
+
+}
