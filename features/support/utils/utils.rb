@@ -37,6 +37,12 @@ module Utils
     newbuilEndPoint1 = endpoint.to_s + "?" + newbuilEndPoint
     return newbuilEndPoint1
   end
+  def Utils.build_new_json_equals(response, expected,tag)
+    responsehash = JSON.parse response
+    expectedhash = JSON.parse expected
+    expectedhash.store tag, responsehash[tag]
+    expectedhash
+  end
 end
 
 

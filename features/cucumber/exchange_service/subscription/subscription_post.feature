@@ -1,4 +1,5 @@
 Feature: Subscription
+
   @exchange
   Scenario: Create a Subscription
     Given I request POST "subscriptions" with:
@@ -9,9 +10,10 @@ Feature: Subscription
           "notificationUrl": "/api/v1/notifications"
         }
      """
+    And With the following headers:
+      | Content-type | application/json|
     When I execute the request
     Then I expect status code 200
-    And the JSON should include "localhost"
-    And the JSON should include 7070
-    And the JSON should include "/api/v1/notifications"
+    And I verify that values used from request are included in response "_id"
+
 

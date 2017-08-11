@@ -4,6 +4,7 @@ Given(/^I request (POST|PUT) "([^"]*)" with:$/) do |method, service_request, jso
 
   @http_request = ApiRestClient.get_request(method, Utils.builEndpoint(service_request))
   ApiRestClient.body(@http_request, json)
+  @expected_response = json
 end
 
 Given(/^I request (GET) "([^"]*)"$/) do |method, endpoint|
@@ -32,4 +33,8 @@ end
 Given(/^I request (GET) "([^"]*)" with data :$/) do |method, endpoint, table|
   # table is a table.hashes.keys # => [:start, :2017-10-22T00%3A00%3A00.000Z]
   @http_request = ApiRestClient.get_request(method, Utils.builEndpoitGet(endpoint, table.rows_hash))
+end
+
+And(/^I verify that values used from request are included in response "([^"]*)"$/) do |tag|
+  @last_json.should be_json_eql(Utils.build_new_json_equals(@last_json, @expected_response, tag).to_json).excluding("__v")
 end
