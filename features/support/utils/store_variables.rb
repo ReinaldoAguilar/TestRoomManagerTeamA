@@ -1,15 +1,19 @@
 
 module StoreVariables
-  def StoreVariables.settings(name, hash_values)
-    @name = name
-    @hash_values = hash_values
+
+  def StoreVariables.store_services_datas(service_name, response_values)
+    @service_name = service_name
+    @response_values = response_values
   end
+
   def StoreVariables.getAttribute_value(key)
-    @result_value = JSON.parse @hash_values.gsub('=>', ':')
+    @result_value = JSON.parse @response_values.gsub('=>', ':')
     result = @result_value[key]
     return result
   end
-  def StoreVariables.getName
-    @name
+
+  def StoreVariables.service_name
+     return @service_name
   end
+
 end

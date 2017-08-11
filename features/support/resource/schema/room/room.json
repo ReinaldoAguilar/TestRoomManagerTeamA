@@ -1,0 +1,41 @@
+{
+
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "roomStatus": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "_id": {
+      "type": "string"
+    },
+    "__v": {
+      "type": "number"
+    },
+    "location": {
+      "type": "string"
+    },
+    "equipment": {
+      "type": ["string"]
+      }
+    ,
+    "required":["name","email","services","uuid"
+    ,"roomStatus", "displayName","_id","__v","location"
+    ,"equipment"]
+  }
+
+}

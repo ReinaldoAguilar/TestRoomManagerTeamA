@@ -17,9 +17,11 @@ GEM
     cucumber-wire (0.0.1)
     diff-lcs (1.3)
     gherkin (4.1.3)
-    json (2.0.2)
     json-schema (2.8.0)
       addressable (>= 2.4)
+    json_spec (1.1.5)
+      multi_json (~> 1.0)
+      rspec (>= 2.0, < 4.0)
     multi_json (1.12.1)
     multi_test (0.1.2)
     public_suffix (2.0.5)
@@ -42,8 +44,8 @@ PLATFORMS
 
 DEPENDENCIES
   cucumber
-  json
   json-schema
+  json_spec
   rspec
 
 BUNDLED WITH

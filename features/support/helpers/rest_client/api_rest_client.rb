@@ -18,18 +18,18 @@ module ApiRestClient
       when 'GET'
         request = Net::HTTP::Get.new(uri)
       else
-        puts "The method was not found, insert a right method"
+        puts "The method was not found, insert a correct method"
     end
-    request
+    return request
   end
 
   def ApiRestClient.body(request, body)
-    request.body = body.to_json
-    request[ "Content-Type"] = $content_type
+    request.body = body
   end
 
-  def ApiRestClient.headers (request, values)
+  def ApiRestClient.add_headers(request, values)
     values.each do |k,v|
+       puts "#{k} AND #{v}"
       request.add_field(k,v)
     end
   end

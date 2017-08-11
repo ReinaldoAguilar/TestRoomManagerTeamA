@@ -11,7 +11,7 @@ default_headers:
     content_type: application/json
 
 ex-change:
-  url: http://10.28.124.152
+  url: http://localhost
   port: 3000
   time_out: 180
   urlenpoint: api/v1

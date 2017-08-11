@@ -1,7 +1,11 @@
 require 'net/http'
 require 'openssl'
-
-
+require 'json_spec/cucumber'
+require 'json-schema'
+JsonSpec.directory = File.expand_path("../../support/files/project/version", __FILE__)
+def last_json
+  @last_json
+end
 def find_config_file(filename)
   root = Pathname.pwd
   while not root.root?

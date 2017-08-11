@@ -1,0 +1,35 @@
+
+
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string"
+      },
+      "hostname": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "deleteLockTime": {
+        "type": "number"
+      },
+      "required":["_id","hostname","name", "type","username"
+      ,"version","deleteLockTime"]
+
+    }
+
+  }
+}

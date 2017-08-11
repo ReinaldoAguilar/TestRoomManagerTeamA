@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 # JSON generation and parsing.
-gem 'json'
 
 # Cucumber gem
 gem 'cucumber'
@@ -10,3 +9,4 @@ gem 'cucumber'
 gem 'rspec'
 
 gem 'json-schema'
+gem 'json_spec'

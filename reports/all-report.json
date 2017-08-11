@@ -1,341 +1,6 @@
 [
   {
-    "uri": "features/feature_roomandexchange/RoomManager/services/service_put.feature",
-    "id": "services",
-    "keyword": "Feature",
-    "name": "Services",
-    "description": "",
-    "line": 1,
-    "elements": [
-      {
-        "id": "services;create-service",
-        "keyword": "Scenario",
-        "name": "Create Service",
-        "description": "",
-        "line": 3,
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "When ",
-            "name": "I request POST \"/services\" with:",
-            "line": 5,
-            "comments": [
-              {
-                "value": "#Given I connect to \"EXCHANGE\"",
-                "line": 4
-              }
-            ],
-            "rows": [
-              {
-                "cells": [
-                  "hostname",
-                  "10.28.124.134"
-                ]
-              },
-              {
-                "cells": [
-                  "username",
-                  "Administrator"
-                ]
-              },
-              {
-                "cells": [
-                  "password",
-                  "ABC123}"
-                ]
-              }
-            ],
-            "output": [
-              "{\"name\":\"Conflict value\",\"description\":\"Conflict with a domain with same name, the domain needs to be unique.\"}"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:3"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 25172400
-            }
-          },
-          {
-            "keyword": "And ",
-            "name": "I stored as [Services1]",
-            "line": 9,
-            "output": [
-              "dfsfsdfsdfsdf?  {\"name\":\"Conflict value\",\"description\":\"Conflict with a domain with same name, the domain needs to be unique.\"} asfdfs"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 86200
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "I expect Status code 200 for the SmokeTest",
-            "line": 10,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "\nexpected: \"200\"\n     got: \"409\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_roomandexchange/common_steps.rb:12:in `/^I expect Status code (\\d+) for the SmokeTest$/'\nfeatures/feature_roomandexchange/RoomManager/services/service_put.feature:10:in `Then I expect Status code 200 for the SmokeTest'",
-              "duration": 22125700
-            }
-          }
-        ]
-      },
-      {
-        "id": "services;update-service",
-        "keyword": "Scenario",
-        "name": "Update Service",
-        "description": "",
-        "line": 12,
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "When ",
-            "name": "I request PUT \"/services/Services1._id\" with:",
-            "line": 13,
-            "rows": [
-              {
-                "cells": [
-                  "username",
-                  "Administrator"
-                ]
-              },
-              {
-                "cells": [
-                  "password",
-                  "ABC123}"
-                ]
-              }
-            ],
-            "output": [
-              "Cannot PUT /api/v1//services//\n"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:3"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 12825800
-            }
-          },
-          {
-            "keyword": "And ",
-            "name": "I stored as [Services1]",
-            "line": 16,
-            "output": [
-              "dfsfsdfsdfsdf?  Cannot PUT /api/v1//services//\n asfdfs"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 61800
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "I expect Status code 200 for the SmokeTest",
-            "line": 17,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "\nexpected: \"200\"\n     got: \"404\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_roomandexchange/common_steps.rb:12:in `/^I expect Status code (\\d+) for the SmokeTest$/'\nfeatures/feature_roomandexchange/RoomManager/services/service_put.feature:17:in `Then I expect Status code 200 for the SmokeTest'",
-              "duration": 400700
-            }
-          }
-        ]
-      },
-      {
-        "id": "services;get-service",
-        "keyword": "Scenario",
-        "name": "Get Service",
-        "description": "",
-        "line": 19,
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "When ",
-            "name": "I request DELETE \"/services/Services1._id\"",
-            "line": 20,
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:12"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "743: unexpected token at 'Cannot PUT /api/v1//services//\n' (JSON::ParserError)\n./features/support/utils/store_variables.rb:8:in `getAttribute_value'\n./features/support/utils/utils.rb:7:in `getValueFromService'\n./features/support/utils/utils.rb:19:in `block in builEndpoint'\n./features/support/utils/utils.rb:15:in `each'\n./features/support/utils/utils.rb:15:in `builEndpoint'\n./features/step_roomandexchange/services_steps/services_steps.rb:14:in `/^I request (GET|DELETE) \"([^\"]*)\"$/'\nfeatures/feature_roomandexchange/RoomManager/services/service_put.feature:20:in `When I request DELETE \"/services/Services1._id\"'",
-              "duration": 231700
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "I expect Status code 200 for the SmokeTest",
-            "line": 21,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "uri": "features/feature_roomandexchange/RoomManager/services/servicepost.feature",
-    "id": "meeting",
-    "keyword": "Feature",
-    "name": "Meeting",
-    "description": "",
-    "line": 2,
-    "tags": [
-      {
-        "name": "@rm",
-        "line": 1
-      }
-    ],
-    "elements": [
-      {
-        "id": "meeting;create-service",
-        "keyword": "Scenario",
-        "name": "Create Service",
-        "description": "",
-        "line": 4,
-        "type": "scenario",
-        "tags": [
-          {
-            "name": "@rm",
-            "line": 1
-          }
-        ],
-        "steps": [
-          {
-            "keyword": "When ",
-            "name": "I request POST \"/services\" with:",
-            "line": 6,
-            "comments": [
-              {
-                "value": "#Given I connect to \"EXCHANGE\"",
-                "line": 5
-              }
-            ],
-            "rows": [
-              {
-                "cells": [
-                  "hostname",
-                  "10.28.124.134"
-                ]
-              },
-              {
-                "cells": [
-                  "username",
-                  "Administrator"
-                ]
-              },
-              {
-                "cells": [
-                  "password",
-                  "ABC123}"
-                ]
-              }
-            ],
-            "output": [
-              "{\"name\":\"Conflict value\",\"description\":\"Conflict with a domain with same name, the domain needs to be unique.\"}"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:3"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 12694600
-            }
-          },
-          {
-            "keyword": "And ",
-            "name": "I stored as [Services1]",
-            "line": 10,
-            "output": [
-              "dfsfsdfsdfsdf?  {\"name\":\"Conflict value\",\"description\":\"Conflict with a domain with same name, the domain needs to be unique.\"} asfdfs"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 58100
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "I expect Status code 200 for the SmokeTest",
-            "line": 11,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "\nexpected: \"200\"\n     got: \"409\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_roomandexchange/common_steps.rb:12:in `/^I expect Status code (\\d+) for the SmokeTest$/'\nfeatures/feature_roomandexchange/RoomManager/services/servicepost.feature:11:in `Then I expect Status code 200 for the SmokeTest'",
-              "duration": 337600
-            }
-          }
-        ]
-      },
-      {
-        "id": "meeting;get-service",
-        "keyword": "Scenario",
-        "name": "Get Service",
-        "description": "",
-        "line": 13,
-        "type": "scenario",
-        "tags": [
-          {
-            "name": "@rm",
-            "line": 1
-          }
-        ],
-        "steps": [
-          {
-            "keyword": "When ",
-            "name": "I request DELETE \"/services/Services1._id\"",
-            "line": 14,
-            "output": [
-              "Cannot DELETE /api/v1//services//\n"
-            ],
-            "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 11857700
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "I expect Status code 200 for the SmokeTest",
-            "line": 15,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
-            },
-            "result": {
-              "status": "failed",
-              "error_message": "\nexpected: \"200\"\n     got: \"404\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_roomandexchange/common_steps.rb:12:in `/^I expect Status code (\\d+) for the SmokeTest$/'\nfeatures/feature_roomandexchange/RoomManager/services/servicepost.feature:15:in `Then I expect Status code 200 for the SmokeTest'",
-              "duration": 331900
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "uri": "features/feature_roomandexchange/RoomManager/services/services_get.feature",
+    "uri": "features/cucumber/exchange_service/service/meetings/meeting_get.feature",
     "id": "test",
     "keyword": "Feature",
     "name": "Test",
@@ -347,34 +12,40 @@
         "keyword": "Scenario",
         "name": "Test 3 schema",
         "description": "",
-        "line": 3,
+        "line": 4,
         "type": "scenario",
-        "steps": [
+        "tags": [
           {
-            "keyword": "Given ",
-            "name": "I have set a connection to pivotal_tracker API service",
-            "line": 4,
-            "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 801200
-            }
+            "name": "@exchange",
+            "line": 3
           },
           {
-            "keyword": "When ",
-            "name": "I request GET \"/services\"",
-            "line": 5,
-            "output": [
-              "[{\"_id\":\"5987c59538b70619c03eea13\",\"name\":\"Exchange Server 2016\",\"version\":\"15.1 (Build 30225.42)\",\"serviceUrl\":\"https://server2012dc.arabitpro.local/EWS/Exchange.asmx\"}]"
-            ],
+            "name": "@headers",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
             "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:12"
+              "location": "features/support/hooks.rb:1"
             },
             "result": {
               "status": "passed",
-              "duration": 12295500
+              "duration": 19539300
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request GET \"meetings?start=2017-10-22T00%3A00%3A00.000Z&end=2017-10-22T23%3A59%3A59.000Z\"",
+            "line": 5,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15872000
             }
           },
           {
@@ -402,11 +73,1769 @@
               }
             ],
             "match": {
-              "location": "features/step_roomandexchange/services_steps/services_steps.rb:20"
+              "location": "features/step_definition/steps/services_steps.rb:27"
             },
             "result": {
               "status": "passed",
-              "duration": 269500
+              "duration": 198200
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200",
+            "line": 10,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\nexpected: \"200\"\n     got: \"401\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definition/common_step/common_steps.rb:8:in `/^I expect Status code (\\d+)$/'\nfeatures/cucumber/exchange_service/service/meetings/meeting_get.feature:10:in `Then I expect Status code 200'",
+              "duration": 19370400
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44800
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/meetings/meeting_post.feature",
+    "id": "test",
+    "keyword": "Feature",
+    "name": "Test",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "test;test-3-schema",
+        "keyword": "Scenario",
+        "name": "Test 3 schema",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          },
+          {
+            "name": "@headers",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23477000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request \"POST\" \"meetings\" with:",
+            "line": 5,
+            "doc_string": {
+              "value": "{\n\"subject\": 23423423,\n\"body\": \"Scrum of Room Manager\",\n\"start\": \"2017-09-25T16:00:00.00Z\",\n\"end\": \"2017-12-25T17:00:00.00Z\",\n\"location\": \"Arani\",\n\"attendees\": [\n\"Administrator@arabitpro.local\"\n],\n\"optionalAttendees\": [\n\"stacy.hirano@server.lab\"\n]\n}",
+              "content_type": "",
+              "line": 6
+            },
+            "match": {
+              "location": "features/cucumber/exchange_service/service/meetings/meeting_post.feature:5"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "With the following headers:",
+            "line": 21,
+            "doc_string": {
+              "value": "{\n\"Exchange-Credentials\": \"QWRtaW5pc3RyYXRvcjpBQkMxMjN9\"\n\"Exchange-Calendar\": \"Administrator@arabitpro.local\"\n}",
+              "content_type": "",
+              "line": 22
+            },
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:27"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 28,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 29,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/meetings/meeting_post.feature:29"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26500
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service/service_delete.feature",
+    "id": "delete-service",
+    "keyword": "Feature",
+    "name": "Delete Service",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "delete-service;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23358400
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/598cc8c77b7e2b13b46a7022\"",
+            "line": 5,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12516800
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200",
+            "line": 6,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\nexpected: \"200\"\n     got: \"404\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definition/common_step/common_steps.rb:8:in `/^I expect Status code (\\d+)$/'\nfeatures/cucumber/exchange_service/service/service/service_delete.feature:6:in `Then I expect Status code 200'",
+              "duration": 565200
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30400
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service/service_postget.feature",
+    "id": "meeting",
+    "keyword": "Feature",
+    "name": "Meeting",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "meeting;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18114200
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"services\" with:",
+            "line": 5,
+            "doc_string": {
+              "value": "    {\n      \"hostname\": \"10.28.124.134\",\n      \"username\": \"Administrator\",\n      \"password\": \"ABC123}\"\n     }",
+              "content_type": "",
+              "line": 6
+            },
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1618120500
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 13,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45900
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I expect Status code 200",
+            "line": 14,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55200
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36900
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service/service_put.feature",
+    "id": "services",
+    "keyword": "Feature",
+    "name": "Services",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "services;create-service",
+        "keyword": "Scenario",
+        "name": "Create Service",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21136000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"services\" with:",
+            "line": 6,
+            "comments": [
+              {
+                "value": "#Given I connect to \"EXCHANGE\"",
+                "line": 5
+              }
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "hostname",
+                  "server2012dc.arabitpro.local"
+                ]
+              },
+              {
+                "cells": [
+                  "username",
+                  "Administrator"
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "ABC123}"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "undefined method `bytesize' for #<Cucumber::MultilineArgument::DataTable:0x00000003eb8ec8> (NoMethodError)\n./features/support/helpers/rest_client/api_rest_client.rb:39:in `execute_request'\n./features/step_definition/steps/services_steps.rb:7:in `/^I request (POST|PUT) \"([^\"]*)\" with:$/'\nfeatures/cucumber/exchange_service/service/service/service_put.feature:6:in `When I request POST \"services\" with:'",
+              "duration": 3601500
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 10,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 11,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service/service_put.feature:11"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38600
+            }
+          }
+        ]
+      },
+      {
+        "id": "services;update-service",
+        "keyword": "Scenario",
+        "name": "Update Service",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 12
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21089400
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"meetings/Services1._id\" with:",
+            "line": 14,
+            "rows": [
+              {
+                "cells": [
+                  "username",
+                  "Administrator"
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "ABC123}"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "undefined method `bytesize' for #<Cucumber::MultilineArgument::DataTable:0x00000003d4b220> (NoMethodError)\n./features/support/helpers/rest_client/api_rest_client.rb:39:in `execute_request'\n./features/step_definition/steps/services_steps.rb:7:in `/^I request (POST|PUT) \"([^\"]*)\" with:$/'\nfeatures/cucumber/exchange_service/service/service/service_put.feature:14:in `When I request POST \"meetings/Services1._id\" with:'",
+              "duration": 3399500
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services2]",
+            "line": 17,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 18,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service/service_put.feature:18"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27300
+            }
+          }
+        ]
+      },
+      {
+        "id": "services;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 20,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 19
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20556800
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/Services1._id\"",
+            "line": 21,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12414200
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 22,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service/service_put.feature:22"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39000
+            }
+          }
+        ]
+      },
+      {
+        "id": "services;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 25,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 24
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17501100
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/Services2._id\"",
+            "line": 26,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12863500
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 27,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service/service_put.feature:27"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27300
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service/serviceget.feature",
+    "id": "test",
+    "keyword": "Feature",
+    "name": "Test",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "test;test-3-schema",
+        "keyword": "Scenario",
+        "name": "Test 3 schema",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19044000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request GET \"services\"",
+            "line": 5,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12014900
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "With the following headers:",
+            "line": 6,
+            "rows": [
+              {
+                "cells": [
+                  "content_type",
+                  "application/json"
+                ]
+              },
+              {
+                "cells": [
+                  "exchange_credentials",
+                  "QWRtaW5pc3RyYXRvcjpBQkMxMjN9"
+                ]
+              },
+              {
+                "cells": [
+                  "exchange_calendar",
+                  "Administrator@arabitpro.local"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 172400
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I execute the request service",
+            "line": 10,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12431000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200",
+            "line": 11,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97000
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39700
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service/servicepost.feature",
+    "id": "meeting",
+    "keyword": "Feature",
+    "name": "Meeting",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "meeting;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22218500
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"services\" with:",
+            "line": 5,
+            "doc_string": {
+              "value": "    {\n      \"hostname\": \"10.28.124.134\",\n      \"username\": \"Administrator\",\n      \"password\": \"ABC123}\"\n     }",
+              "content_type": "",
+              "line": 6
+            },
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 77794800
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 13,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45800
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I expect Status code 200",
+            "line": 14,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74600
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I verify the values included",
+            "line": 15,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40600
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26000
+            }
+          }
+        ]
+      },
+      {
+        "id": "meeting;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 18,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 17
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21038700
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request GET \"services\"",
+            "line": 19,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12584200
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I expect Status code 200",
+            "line": 20,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111600
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I verify the datas recived",
+            "line": 21,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82400
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25800
+            }
+          }
+        ]
+      },
+      {
+        "id": "meeting;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 24,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 23
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19669100
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/Services1._id\"",
+            "line": 25,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12465400
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200",
+            "line": 26,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 110600
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28600
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/service_put.feature",
+    "id": "services",
+    "keyword": "Feature",
+    "name": "Services",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "services;create-service",
+        "keyword": "Scenario",
+        "name": "Create Service",
+        "description": "",
+        "line": 3,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request Exchange Services POST \"services\" with:",
+            "line": 5,
+            "comments": [
+              {
+                "value": "#Given I connect to \"EXCHANGE\"",
+                "line": 4
+              }
+            ],
+            "doc_string": {
+              "value": "   {\n     \"hostname\": \"10.28.124.134\",\n     \"username\": \"Administrator\",\n     \"password\": \"ABC123}\"\n    }",
+              "content_type": "",
+              "line": 6
+            },
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66064500
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored Exchange Services as [Services1]",
+            "line": 13,
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51800
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 14,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service_put.feature:14"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26500
+            }
+          }
+        ]
+      },
+      {
+        "id": "services;update-service",
+        "keyword": "Scenario",
+        "name": "Update Service",
+        "description": "",
+        "line": 16,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request Exchange Services PUT \"services/Services1._id\" with:",
+            "line": 17,
+            "doc_string": {
+              "value": "   {\n     \"username\": \"Administrator\",\n     \"password\": \"ABC123}\"\n    }",
+              "content_type": "",
+              "line": 18
+            },
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22901800
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 24,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41400
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 25,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service_put.feature:25"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29500
+            }
+          }
+        ]
+      },
+      {
+        "id": "services;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 27,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request Exchange Services DELETE \"services/Services1._id\"",
+            "line": 28,
+            "output": [
+              "{\"_id\":\"598ccabc38b70619c03eeae4\",\"type\":\"ExchangeServer\",\"name\":\"Exchange Server 2016\",\"version\":\"15.1 (Build 30225.42)\"}"
+            ],
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12116400
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 29,
+            "match": {
+              "location": "features/cucumber/exchange_service/service/service_put.feature:29"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45100
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/servicepost.feature",
+    "id": "create-service",
+    "keyword": "Feature",
+    "name": "Create Service",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@exchange",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "create-service;create-service",
+        "keyword": "Scenario",
+        "name": "Create Service",
+        "description": "",
+        "line": 5,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 1
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23107600
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request Exchange Services POST \"services\" with:",
+            "line": 7,
+            "comments": [
+              {
+                "value": "#Given I connect to \"EXCHANGE\"",
+                "line": 6
+              }
+            ],
+            "doc_string": {
+              "value": "  {\n    \"hostname\": \"10.28.124.134\",\n    \"username\": \"Administrator\",\n    \"password\": \"ABC123}\"\n   }",
+              "content_type": "",
+              "line": 8
+            },
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66203100
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored Exchange Services as [Services1]",
+            "line": 15,
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44300
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200",
+            "line": 16,
+            "match": {
+              "location": "features/step_definition/common_step/common_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65900
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the JSON response should be:",
+            "line": 20,
+            "comments": [
+              {
+                "value": "#And  the JSON should include file \"services.json\"",
+                "line": 18
+              }
+            ],
+            "doc_string": {
+              "value": "      {\n        \"hostname\": \"10.28.124.134\",\n        \"username\": \"Administrator\",\n        \"password\": \"ABC123}\"\n       }",
+              "content_type": "",
+              "line": 21
+            },
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4266800
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39400
+            }
+          }
+        ]
+      },
+      {
+        "id": "create-service;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 29,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 1
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20272600
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request Exchange Services DELETE \"services/Services1._id\"",
+            "line": 30,
+            "output": [
+              "{\"_id\":\"598ccabc38b70619c03eeae5\",\"type\":\"ExchangeServer\",\"name\":\"Exchange Server 2016\",\"version\":\"15.1 (Build 30225.42)\"}"
+            ],
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11993800
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code Exchange Services 200 for the SmokeTest",
+            "line": 31,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 120900
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39200
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/service/subscription/subscription_post.feature",
+    "id": "subscription",
+    "keyword": "Feature",
+    "name": "Subscription",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "subscription;create-a-subscription",
+        "keyword": "Scenario",
+        "name": "Create a Subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21064400
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I request Exchange Services POST \"subscriptions\" with:",
+            "line": 5,
+            "rows": [
+              {
+                "cells": [
+                  "host",
+                  "localhost"
+                ]
+              },
+              {
+                "cells": [
+                  "port",
+                  "7070"
+                ]
+              },
+              {
+                "cells": [
+                  "notificationUrl",
+                  "/api/v1/notifications"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:2"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "undefined method `bytesize' for #<Cucumber::MultilineArgument::DataTable:0x000000037514f0> (NoMethodError)\n./features/support/helpers/rest_client/api_rest_client.rb:39:in `execute_request'\n./features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:8:in `/^I request Exchange Services (POST|PUT) \"([^\"]*)\" with:$/'\nfeatures/cucumber/exchange_service/service/subscription/subscription_post.feature:5:in `Given I request Exchange Services POST \"subscriptions\" with:'",
+              "duration": 2739100
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code Exchange Services 200 for the SmokeTest",
+            "line": 9,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:1"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41800
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/exchange_service/subscription/subscription_post.feature",
+    "id": "subscription",
+    "keyword": "Feature",
+    "name": "Subscription",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "subscription;create-a-subscription",
+        "keyword": "Scenario",
+        "name": "Create a Subscription",
+        "description": "",
+        "line": 3,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@exchange",
+            "line": 2
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17452000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I request Exchange Services POST \"subscriptions\" with:",
+            "line": 4,
+            "doc_string": {
+              "value": "  {\n    \"host\": \"localhost\",\n    \"port\": 7070,\n    \"notificationUrl\": \"/api/v1/notifications\"\n  }",
+              "content_type": "",
+              "line": 5
+            },
+            "match": {
+              "location": "features/step_definition/ExchangeServiceDELETE/exchange_service_step.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12272900
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code Exchange Services 200 for the SmokeTest",
+            "line": 12,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:1"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\nexpected: \"200\"\n     got: \"409\"\n\n(compared using eql?)\n (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definition/assert/assert.rb:2:in `/^I expect Status code Exchange Services (\\d+) for the SmokeTest$/'\nfeatures/cucumber/exchange_service/subscription/subscription_post.feature:12:in `Then I expect Status code Exchange Services 200 for the SmokeTest'",
+              "duration": 338800
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24200
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/room_manager/services/servicepost.feature",
+    "id": "service",
+    "keyword": "Feature",
+    "name": "service",
+    "description": "",
+    "line": 2,
+    "elements": [
+      {
+        "id": "service;create-service",
+        "keyword": "Scenario",
+        "name": "Create Service",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@room",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24616000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"services\" with:",
+            "line": 6,
+            "comments": [
+              {
+                "value": "#Given I connect to \"EXCHANGE\"",
+                "line": 5
+              }
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "hostname",
+                  "10.28.124.134"
+                ]
+              },
+              {
+                "cells": [
+                  "username",
+                  "Administrator"
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "ABC123}"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "undefined method `bytesize' for #<Cucumber::MultilineArgument::DataTable:0x000000041bd4c0> (NoMethodError)\n./features/support/helpers/rest_client/api_rest_client.rb:39:in `execute_request'\n./features/step_definition/steps/services_steps.rb:7:in `/^I request (POST|PUT) \"([^\"]*)\" with:$/'\nfeatures/cucumber/room_manager/services/servicepost.feature:6:in `When I request POST \"services\" with:'",
+              "duration": 3092000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 10,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 11,
+            "match": {
+              "location": "features/cucumber/room_manager/services/servicepost.feature:11"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24800
+            }
+          }
+        ]
+      },
+      {
+        "id": "service;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 14,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@room",
+            "line": 13
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20074800
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/Services1._id\"",
+            "line": 15,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12391200
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 16,
+            "match": {
+              "location": "features/cucumber/room_manager/services/servicepost.feature:16"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29900
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "features/cucumber/room_manager/services/services_get.feature",
+    "id": "test",
+    "keyword": "Feature",
+    "name": "Test",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "test;create-service",
+        "keyword": "Scenario",
+        "name": "Create Service",
+        "description": "",
+        "line": 3,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@room",
+            "line": 2
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19825000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request POST \"services\" with:",
+            "line": 5,
+            "rows": [
+              {
+                "cells": [
+                  "hostname",
+                  "10.28.124.134"
+                ]
+              },
+              {
+                "cells": [
+                  "username",
+                  "Administrator"
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "ABC123}"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:3"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "undefined method `bytesize' for #<Cucumber::MultilineArgument::DataTable:0x00000003face60> (NoMethodError)\n./features/support/helpers/rest_client/api_rest_client.rb:39:in `execute_request'\n./features/step_definition/steps/services_steps.rb:7:in `/^I request (POST|PUT) \"([^\"]*)\" with:$/'\nfeatures/cucumber/room_manager/services/services_get.feature:5:in `When I request POST \"services\" with:'",
+              "duration": 3217100
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I stored as [Services1]",
+            "line": 9,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:31"
+            },
+            "result": {
+              "status": "skipped"
             }
           },
           {
@@ -414,23 +1843,176 @@
             "name": "I expect Status code 200 for the SmokeTest",
             "line": 10,
             "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:10"
+              "location": "features/cucumber/room_manager/services/services_get.feature:10"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
             },
             "result": {
               "status": "passed",
-              "duration": 117800
+              "duration": 27000
+            }
+          }
+        ]
+      },
+      {
+        "id": "test;test-3-schema",
+        "keyword": "Scenario",
+        "name": "Test 3 schema",
+        "description": "",
+        "line": 12,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@room",
+            "line": 11
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18785400
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request GET \"services\"",
+            "line": 13,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12214500
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 14,
+            "match": {
+              "location": "features/cucumber/room_manager/services/services_get.feature:14"
+            },
+            "result": {
+              "status": "undefined"
             }
           },
           {
             "keyword": "And ",
-            "name": "I  format table schema format \"services\"",
-            "line": 11,
+            "name": "I verify the expected schema for \"services\"",
+            "line": 15,
             "match": {
-              "location": "features/step_roomandexchange/common_steps.rb:43"
+              "location": "features/step_definition/common_step/common_steps.rb:13"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I expect equivalence",
+            "line": 16,
+            "match": {
+              "location": "features/step_definition/assert/assert.rb:5"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the JSON response should not have \"password\"",
+            "line": 17,
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:74"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
             },
             "result": {
               "status": "passed",
-              "duration": 6739100
+              "duration": 39200
+            }
+          }
+        ]
+      },
+      {
+        "id": "test;get-service",
+        "keyword": "Scenario",
+        "name": "Get Service",
+        "description": "",
+        "line": 20,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@room",
+            "line": 19
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18505500
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "I request DELETE \"services/Services1._id\"",
+            "line": 21,
+            "match": {
+              "location": "features/step_definition/steps/services_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11747300
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I expect Status code 200 for the SmokeTest",
+            "line": 22,
+            "match": {
+              "location": "features/cucumber/room_manager/services/services_get.feature:22"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "json_spec-1.1.5/lib/json_spec/cucumber.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35200
             }
           }
         ]
