@@ -1,6 +1,5 @@
-Feature: Create Meeting
+Feature: Update Meetings
 
-  @exchange
   Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
@@ -26,6 +25,24 @@ Feature: Create Meeting
       And I stored the reference of a services as: [Meetings1]
     Then I expect status code 200
 
+
+  @delete_service
+    Scenario: Update Meeting
+      Given I request PUT "/meetings/Meetings1._id/RSVP" with:
+      """
+      {
+        "action": "Decline",
+        "doNotSendResponse": false,
+        "editResponse": "I will not be able to attend the meeting"
+      }
+      """
+        And With the following headers:
+        | Content-type         | application/json              |
+        | Exchange-credentials | QWRtaW5pc3RyYXRvcjpBQkMxMjN9  |
+      When I execute the request
+      Then I expect status code 200
+
+
   @delete_service
   Scenario: Get Meetings
     Given I request GET "meetings" with data :
@@ -37,4 +54,3 @@ Feature: Create Meeting
       | Exchange-calendar    | Administrator@arabitpro.local |
     When I execute the request
     Then I expect status code 200
-

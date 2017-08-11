@@ -17,6 +17,7 @@ end
 And(/^I execute the request$/) do
   @http_response = ApiRestClient.execute_request(@http_request)
   @last_json = @http_response.body
+  p @http_response.body
 end
 
 And(/^With the following headers:$/) do |table|
@@ -24,7 +25,7 @@ And(/^With the following headers:$/) do |table|
   ApiRestClient.add_headers(@http_request, table.rows_hash)
 end
 
-And(/^The name of the service is: \[([^"]*)\]$/) do |service_name|
+And(/^I stored the reference of a services as: \[([^"]*)\]$/) do |service_name|
   StoreVariables.store_services_datas(service_name, @http_response.body)
 end
 

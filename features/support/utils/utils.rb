@@ -30,8 +30,6 @@ module Utils
   end
 
   def Utils.builEndpoitGet(endpoint, values_service)
-    #meetings?start=2017-10-22T00%3A00%3A00.000Z&end=2017-10-22T23%3A59%3A59.000Z
-    #start=2017-10-22T00%3A00%3A00.000Z&end=2017-10-22T23%3A59%3A59.000Z&
     newbuilEndPoint = nil
     values_service.each do |k,v|
       newbuilEndPoint = newbuilEndPoint.to_s + k.to_s + "=" + v.to_s + "&"

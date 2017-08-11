@@ -29,7 +29,6 @@ module ApiRestClient
 
   def ApiRestClient.add_headers(request, values)
     values.each do |k,v|
-       puts "#{k} AND #{v}"
       request.add_field(k,v)
     end
   end

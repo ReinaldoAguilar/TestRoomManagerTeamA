@@ -1,9 +1,9 @@
-Feature: Test
+Feature: Exchange Service
 
   @exchange
-  Scenario: Test 3 schema
+  Scenario: Get Services
     Given I request GET "services"
-    And With the following headers:
+      And With the following headers:
       | content_type         | application/json              |
       | exchange_credentials | QWRtaW5pc3RyYXRvcjpBQkMxMjN9  |
       | exchange_calendar    | Administrator@arabitpro.local |

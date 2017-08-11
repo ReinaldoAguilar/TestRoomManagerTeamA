@@ -11,5 +11,5 @@ Feature: Meeting
            }
         """
     When I execute the request
-    And The name of the service is: [Services1]
+      And I stored the reference services as: [Services1]
     And I expect status code 200
