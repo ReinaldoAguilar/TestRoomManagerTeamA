@@ -19,6 +19,9 @@ require 'yaml'
     $exchange_credentials = configuration['default_headers']['exchange_credentials']
     $exchange_calendar = configuration['default_headers']['exchange_calendar']
     $content_type = configuration['default_headers']['content_type']
+
+    $urldb = configuration['mongodb']['urldb']
+    $portdb = configuration['mongodb']['portdb']
     $schema_directory = "#{Dir.pwd}/features/support/resource/schema"
 
   end

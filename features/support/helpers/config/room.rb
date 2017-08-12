@@ -9,5 +9,6 @@ class Room
     $port = configuration['room-manager']['port']
     $urlenpoint = configuration['room-manager']['urlenpoint']
     $hostname_domain = configuration['room-manager']['hostname_domain']
+    $db  = configuration['room-manager']['db']
   end
 end

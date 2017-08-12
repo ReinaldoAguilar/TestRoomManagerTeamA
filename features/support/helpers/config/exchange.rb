@@ -6,5 +6,6 @@ class Exchange
     $port = configuration['ex-change']['port']
     $urlenpoint = configuration['ex-change']['urlenpoint']
     $hostname_domain = configuration['ex-change']['hostname_domain']
+    $db  = configuration['ex-change']['db']
   end
 end

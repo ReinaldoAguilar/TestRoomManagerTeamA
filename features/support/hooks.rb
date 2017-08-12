@@ -21,4 +21,11 @@ After('@delete_service') do
     @http_request = ApiRestClient.get_request("DELETE", endpoint)
     @http_response = ApiRestClient.execute_request(@http_request)
   end
+
+
+end
+Before('@delete_suscription') do
+  client = Mongo_client.new
+  client.drop('subscriptions')
+  client.close_connection
 end
