@@ -1,0 +1,18 @@
+
+{
+
+    "type": "object",
+    "properties": {
+      "host": {
+        "type": "string"
+      },
+      "port": {
+        "type": "number"
+      },
+      "notificationUrl": {
+        "type": "string"
+      },
+      "required":["host","port","type"]
+      }
+
+}

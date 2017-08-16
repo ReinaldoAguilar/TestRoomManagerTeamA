@@ -1,0 +1,23 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "serviceUrl": {
+        "type": "string"
+      },
+      "required":["_id","name","version","serviceUrl"]
+
+    }
+
+  }
+}

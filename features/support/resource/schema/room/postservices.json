@@ -1,0 +1,27 @@
+
+{
+
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+
+    "version": {
+      "type": "string"
+    },
+    "deleteLockTime": {
+      "type": "number"
+    },
+
+    "required":["name","_id","type","version"
+    ,"deleteLockTime"]
+  }
+
+}

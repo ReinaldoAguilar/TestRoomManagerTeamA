@@ -4,7 +4,7 @@ module ApiRestClient
   def ApiRestClient.get_request(method, url)
     request = nil
     p $port
-    url = "#{$base_url}:#{$port}/#{$urlenpoint}/#{url}"
+    url = "#{$protocol}#{$base_url}:#{$port}/#{$urlenpoint}/#{url}"
     p url
     uri = URI.parse(url)
 
@@ -18,17 +18,16 @@ module ApiRestClient
       when 'GET'
         request = Net::HTTP::Get.new(uri)
       else
-        puts "The method was not found, insert a right method"
+        puts "The method was not found, insert a correct method"
     end
-    request
+    return request
   end
 
   def ApiRestClient.body(request, body)
-    request.body = body.to_json
-    request[ "Content-Type"] = $content_type
+    request.body = body
   end
 
-  def ApiRestClient.headers (request, values)
+  def ApiRestClient.add_headers(request, values)
     values.each do |k,v|
       request.add_field(k,v)
     end

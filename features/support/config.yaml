@@ -1,18 +1,26 @@
+mongodb:
+  urldb: localhost
+  portdb: 27017
+
 room-manager:
-  url: http://localhost
+  url: localhost
   port: 7070
   time_out: 180
   urlenpoint: api/v1
   hostname_domain: server2012dc.arabitpro.local
-
-default_headers:
-    exchange_credentials: QWRtaW5pc3RyYXRvcjpBQkMxMjN9
-    exchange_calendar: Administrator@arabitpro.local
-    content_type: application/json
+  db: rmserver
 
 ex-change:
-  url: http://10.28.124.152
+  url: localhost
   port: 3000
   time_out: 180
   urlenpoint: api/v1
   hostname_domain: server2012dc.arabitpro.local
+  db: exchangeservicedb
+
+default_headers:
+    protocol: http://
+    exchange_credentials: QWRtaW5pc3RyYXRvcjpBQkMxMjN9
+    exchange_calendar: Administrator@arabitpro.local
+    content_type: application/json
+
