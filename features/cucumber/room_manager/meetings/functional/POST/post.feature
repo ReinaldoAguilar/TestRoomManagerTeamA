@@ -1,7 +1,8 @@
 @room
-Feature: Get Meetings Room Manager
+Feature: Create Meeting
 
-  @smoke @positive
+  ## TODO  add tags, change JSON with parameters, change header values, change to outline, add copyritgh(autor), addvalidations, report
+
   Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
@@ -27,17 +28,4 @@ Feature: Get Meetings Room Manager
       | Credentials  | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 |
     When I execute the request
     And I stored the "_id" of the response [Services1]
-    Then I expect status code 200
-
-
-  @smoke @positive
-  Scenario: Get Meetings
-    Given I request GET "meetings" with data :
-      | owner | Administrator@arabitpro.local |
-      | start | 2017-10-22T00%3A00%3A00.000Z |
-      | end   | 2017-10-22T23%3A59%3A59.000Z |
-    And With the following headers:
-      | Content-type | application/json             |
-      | Credentials  | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 |
-    When I execute the request
     Then I expect status code 200

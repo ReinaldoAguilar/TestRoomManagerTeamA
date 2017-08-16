@@ -1,7 +1,6 @@
 @room
-Feature: Create Meeting Room Manager
+Feature: Create Meeting
 
-  @crud @positive
   Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """

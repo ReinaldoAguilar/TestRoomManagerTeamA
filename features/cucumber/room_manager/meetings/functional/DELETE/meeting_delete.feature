@@ -1,7 +1,7 @@
 @room
-Feature: Update Meetings
+Feature: Delete Meetings
 
-  Background: Create a Meeting
+  Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
       {
@@ -28,17 +28,17 @@ Feature: Update Meetings
     And I stored the "_id" of the response [Meetings1]
 
 
-  Scenario Outline: Get specific meeting
-    Given I request GET "meetings/<id>"
+  Scenario Outline: Delete Meeting
+    Given I request DELETE "meetings/<id>"
     And With the following headers:
-      | Content-type         | <content-type> |
-      | Exchange-credentials | <credentials>  |
+      | Content-type | <content-type> |
+      | credentials  | <credentials>  |
     When I execute the request
     Then I expect status code <code>
 
     Examples:
       | id              | content-type     | credentials                  | code |
       | Meetings1       | application/json | sfsdfsdfsdfsdfsdfsdfsdffsdfs | 404  |
-      | 345345345423423 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 400  |
-      |                 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 200  |
+      | 345345345423423 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 404  |
+      |                 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 404  |
       | Meetings1       | application/json |                              | 404  |

@@ -1,12 +1,12 @@
-@exchange  @deletebd
+@exchange
 Feature: Subscription
 
- @functional
+  @delete_suscription
   Scenario: Create a Subscription
     Given I request POST "subscriptions" with:
      """
         {
-          "host": "localhost",
+          "host": "$base_url",
           "port": 7070,
           "notificationUrl": "/api/v1/notifications"
         }
@@ -22,7 +22,7 @@ Feature: Subscription
       | _id |
     And I verify that response built with request data is equal to JSON response
 
-  @functional
+  @delete_suscription
   Scenario: Create a Subscription with an ip assigned to the machine
     Given I request POST "subscriptions" with:
      """
@@ -43,7 +43,7 @@ Feature: Subscription
       | _id |
     And I verify that response built with request data is equal to JSON response
 
-  @functional @create_subscription
+  @delete_suscription @crate_subscription_exchange
   Scenario: Server doesn't accept create a subscription with a IP registered
     Given I request POST "subscriptions" with:
      """
@@ -64,7 +64,8 @@ Feature: Subscription
              "description": "Conflict with a host with same name, the host needs to be unique."
           }
       """
-  @functional
+
+  @delete_suscription
   Scenario Outline:Negative combinations for subscription scenarios
     Given I request POST "subscriptions" with:
       """

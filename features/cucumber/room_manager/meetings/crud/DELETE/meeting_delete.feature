@@ -1,7 +1,7 @@
 @room
 Feature: Update Meetings
 
-  Background: Create a Meeting
+  Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
       {
@@ -26,19 +26,13 @@ Feature: Update Meetings
       | Credentials  | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 |
     When I execute the request
     And I stored the "_id" of the response [Meetings1]
+    Then I expect status code 200
 
-
-  Scenario Outline: Get specific meeting
-    Given I request GET "meetings/<id>"
+  @delete_service
+  Scenario: Delete Meeting
+    Given I request DELETE "meetings/Meetings1"
     And With the following headers:
-      | Content-type         | <content-type> |
-      | Exchange-credentials | <credentials>  |
+      | Content-type | application/json             |
+      | credentials  | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 |
     When I execute the request
-    Then I expect status code <code>
-
-    Examples:
-      | id              | content-type     | credentials                  | code |
-      | Meetings1       | application/json | sfsdfsdfsdfsdfsdfsdfsdffsdfs | 404  |
-      | 345345345423423 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 400  |
-      |                 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 200  |
-      | Meetings1       | application/json |                              | 404  |
+    Then I expect status code 200

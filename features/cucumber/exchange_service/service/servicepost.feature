@@ -1,15 +1,18 @@
-@exchange
+@exchange @testks
 Feature: Exchange Services
 
   Scenario: Post Services
     Given I request POST "services" with:
-      """
-          {
-            "hostname": "10.28.124.134",
-            "username": "Administrator",
-            "password": "ABC123}"
-           }
-        """
+#      """
+#          {
+#            "hostname": "2423423423423",
+#            "username": "Administrator",
+#            "password": "ABC123}"
+#           }
+#        """
+      | hostname | 10.28.124.134 |
+      | username | Administrator |
+      | password | ABC123}       |
 
     And With the following headers:
       | Content-type | application/json |

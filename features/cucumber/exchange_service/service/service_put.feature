@@ -43,4 +43,12 @@ Feature: Exchange Services
     Then I expect status code 200
       And I verify the data received is according previous POST response
 
+#  Scenario: Get Service
+#    Given I request DELETE "services/Services1._id"
+#    When I execute the request
+#    Then I expect status code 200
+#     And the JSON response should not have "Exchange Server 2016"
+#     And the JSON response should not have "ExchangeServer"
+#     And the JSON response should not have "15.1 (Build 30225.42)"
+
 
