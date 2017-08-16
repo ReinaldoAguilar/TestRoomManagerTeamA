@@ -44,6 +44,8 @@ AfterConfiguration do |config|
   $exchange_calendar = configuration['default_headers']['exchange_calendar']
   $content_type = configuration['default_headers']['content_type']
   $protocol = configuration['default_headers']['protocol']
+  $username = configuration['default_headers']['username']
+  $userpasword = configuration['default_headers']['userpasword']
 
   $urldb = configuration['mongodb']['urldb']
   $portdb = configuration['mongodb']['portdb']

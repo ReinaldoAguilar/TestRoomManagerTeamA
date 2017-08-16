@@ -48,7 +48,7 @@ Feature: Subscription
     Given I request POST "subscriptions" with:
      """
         {
-          "host": "locahost",
+          "host": "localhost",
           "port": 7070,
           "notificationUrl": "/api/v1/notifications"
         }
@@ -80,7 +80,7 @@ Feature: Subscription
     When I execute the request
     Then I expect status code <codes>
 
-    Examples:negative
+    Examples: No special characters in subscription
       | host        | ports               | notificationUrls        | codes |
       | 10101       | 7070                | "/api/v1/notifications" | 400   |
       | localhost   | 7070                | "/api/v1/notifications" | 400   |
@@ -95,4 +95,10 @@ Feature: Subscription
       | "localhost" | "%&/,"              | "/api/v1/notifications" | 400   |
       | "localhost" | "7070"              | "/api/v1/notifications" | 400   |
       | "localhost" | 4611686018427387903 | "/api/v1/notifications" | 400   |
+
+    Examples: Special characters in subscription
+      | host            | ports | notificationUrls        | codes |
+      | "localhost"     | 7070  | "/api/v1/notifications" | 200   |
+      | "localhost"     | 2     | "/api/v1/notifications" | 200   |
+      | "10.28.124.152" | 7070  | "/api/v1/notifications" | 200   |
 

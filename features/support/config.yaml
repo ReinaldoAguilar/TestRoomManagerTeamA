@@ -23,4 +23,6 @@ default_headers:
     exchange_credentials: QWRtaW5pc3RyYXRvcjpBQkMxMjN9
     exchange_calendar: Administrator@arabitpro.local
     content_type: application/json
+    username: Administrator
+    userpasword: ABC123}
 

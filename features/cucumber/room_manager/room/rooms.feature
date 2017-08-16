@@ -1,29 +1,45 @@
-@room
+@room @deletebd @create_subscription  @crate_service_room
 Feature: rooms
 
 
-  Scenario: get a rooms with  rooms created
-    Given I request GET "rooms"
-    When I execute the request
-    Then I expect status code 200
-    And I verify the expected schema for "rooms"
-
-  @smoke
-  Scenario: Get Room with headers
+   @smoke
+  Scenario Outline: Get all rooms with status free
     Given I request GET "rooms" with data :
-      | start  | 2017-04-21T20%3A00%3A00.000Z |
-      | end    | 2017-04-21T20%3A30%3A00.000Z |
-      | status | free                         |
+      | from   | 2017-02-01T00:00:00.000Z |
+      | to     | 2017-02-01T00:00:59.000Z |
+      | status | <status>                 |
     When I execute the request
     Then I expect status code 200
-    And I verify the expected schema for "rooms"
+    And the JSON should be:
+      """
+      []
+      """
+    Examples:
+      | status |
+      | free   |
 
-  @delete_rooms
-  Scenario: Get Room with headers without room created
+  @funtional
+  Scenario Outline:Negative combinations for Room scenarios
     Given I request GET "rooms" with data :
-      | start  | 2017-04-21T20%3A00%3A00.000Z |
-      | end    | 2017-04-21T20%3A30%3A00.000Z |
-      | status | free                         |
+      | $select | <select> |
+      | from    | <from>   |
+      | to      | <to>     |
+      | status  | <status> |
+    And With the following headers:
+      | Content-type | application/json |
     When I execute the request
-    Then I expect status code 200
-    And I verify the expected schema for "rooms"
+    Then I expect status code <codes>
+    And The response header should exist
+      | Content-type | application/json |
+    And the JSON should be:
+          """
+          {
+            "name":"<name>",
+            "description":"<description>\n    StatusCode: <codes>"
+          }
+          """
+    Examples: No special characters in room
+      | select | from | to                       | status | name       | codes | description                                                            |
+      |        |      | 2017-02-01T00:00:59.000Z | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        |      | 2017-02-01T00:00:59.000Z | busy   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+

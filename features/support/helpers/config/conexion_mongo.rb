@@ -11,4 +11,13 @@ module Mongo_client
   def Mongo_client.close_connection
     @client.close
   end
+  def Mongo_client.dropdatabase
+
+    @client.database.drop
+  end
+  def Mongo_client.methoDeleteDatabase
+    Mongo_client.initialize
+    Mongo_client.dropdatabase
+    Mongo_client.close_connection
+  end
 end
