@@ -41,7 +41,7 @@ Before('@deletebd') do
   end
 end
 
-Before('@delete_suscription') do
+Before('@subscription') do
    Mongo_client.initialize
    Mongo_client.drop('subscriptions')
    Mongo_client.close_connection
@@ -61,14 +61,15 @@ Before('@create_subscription') do
   # ApiRestClient.execute_request(@http_request)
   case $type
     when "exchange"
-
+      Conexion_Api_Factory_Enum.factory_connection("room")
+      portRoom = $port
       Conexion_Api_Factory_Enum.factory_connection("exchange")
       steps %Q{
              Given I request POST "subscriptions" with:
                """
                   {
-                    "host": "#{URI.parse($base_url).host}",
-                    "port": #{$port},
+                    "host": "#{$base_url}",
+                    "port": #{portRoom},
                     "notificationUrl": "/api/v1/notifications"
                   }
                """
@@ -76,7 +77,6 @@ Before('@create_subscription') do
               | Content-type | application/json |
              When I execute the request
         }
-
     when "room"
       portRoom = $port
       Conexion_Api_Factory_Enum.factory_connection("exchange")
@@ -107,10 +107,6 @@ Before('@crate_service_room') do
   # ApiRestClient.get_request('POST', "subscriptions")
   # ApiRestClient.body(@http_request, json)
   # ApiRestClient.execute_request(@http_request)
-puts $hostname_domain
-puts $username
-puts $userpasword
-
   steps %Q{
              Given I request POST "services" with:
                 """

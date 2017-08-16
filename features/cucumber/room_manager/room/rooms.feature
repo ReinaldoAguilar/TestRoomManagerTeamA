@@ -1,12 +1,11 @@
 @room @deletebd @create_subscription  @crate_service_room
 Feature: rooms
 
-
-   @smoke
+  @smoke
   Scenario Outline: Get all rooms with status free
     Given I request GET "rooms" with data :
-      | from   | 2017-02-01T00:00:00.000Z |
-      | to     | 2017-02-01T00:00:59.000Z |
+      | from   | 2016-02-01T00:00:00.000Z |
+      | to     | 2016-02-01T00:00:59.000Z |
       | status | <status>                 |
     When I execute the request
     Then I expect status code 200
@@ -18,7 +17,38 @@ Feature: rooms
       | status |
       | free   |
 
-  @funtional
+  @functional @negative
+  Scenario Outline: Return a room with a specific tag
+    Given I request GET "rooms" with data :
+      | $select | <select>                 |
+      | from    | 2017-01-01T00:00:01.000Z |
+      | to      | 2017-01-01T00:00:59.000Z |
+      | status  | <status>                 |
+    When I execute the request
+    Then I expect status code <codes>
+    And The response header should exist
+      | Content-type | application/json |
+    And the JSON should be:
+          """
+          {
+            "name":"<name>",
+            "description":"Attribute field with value '<tag>' does not exist."
+          }
+          """
+    Examples: No special characters in room
+      | select | status | codes | name              | tag   |
+      | _room  | free   | 400   | InvalidFieldFound | _room |
+      | 12124  | free   | 400   | InvalidFieldFound | 12124 |
+      | -123   | free   | 400   | InvalidFieldFound | -123  |
+      | _room  | busy   | 400   | InvalidFieldFound | _room |
+      | 12124  | busy   | 400   | InvalidFieldFound | 12124 |
+      | -123   | busy   | 400   | InvalidFieldFound | -123  |
+      | _room  |        | 400   | InvalidFieldFound | _room |
+      | 12124  |        | 400   | InvalidFieldFound | 12124 |
+      | -123   |        | 400   | InvalidFieldFound | -123  |
+
+
+  @functional @negative
   Scenario Outline:Negative combinations for Room scenarios
     Given I request GET "rooms" with data :
       | $select | <select> |
@@ -39,7 +69,17 @@ Feature: rooms
           }
           """
     Examples: No special characters in room
-      | select | from | to                       | status | name       | codes | description                                                            |
-      |        |      | 2017-02-01T00:00:59.000Z | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
-      |        |      | 2017-02-01T00:00:59.000Z | busy   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
-
+      | select | from                     | to                       | status | name       | codes | description                                                            |
+      |        |                          | 2017-02-01T00:00:59.000Z | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        |                          | 2017-02-01T00:00:59.000Z | busy   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017-02-01T00:00:00.000Z |                          | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017-02-01T00:00:00.000Z |                          | busy   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        |                          |                          | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        |                          |                          | busy   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 01/02/2017               | 2017-02-01T00:00:59.000Z | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017/02/01               | 2017-02-01T00:00:59.000Z | free   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | character%               | 2017-02-01T00:00:59.000Z | free   | NotFound   | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 190                      | 2017-02-01T00:00:59.000Z | free   | NotFound   | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017-02-01T00:00:00.000Z | 2017-02-01T00:00:59.000Z |        | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017-02-01T00:00:00.000Z | 2017-02-01T00:00:59.000Z | 4545   | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
+      |        | 2017-02-01T00:00:00.000Z | 2017-02-01T00:00:59.000Z | ^%busy | BadRequest | 400   | To get rooms in range of time, FROM, TO and STATUS params must be sent |
