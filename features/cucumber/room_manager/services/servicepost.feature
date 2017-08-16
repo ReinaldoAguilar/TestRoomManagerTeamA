@@ -1,3 +1,4 @@
+
 @room
 Feature: room Services
 
@@ -7,8 +8,8 @@ Feature: room Services
       """
           {
             "hostname": "10.28.124.134",
-            "username": "$admin",
-            "password": "$pass",
+            "username": "Administrator",
+            "password": "ABC123}@",
             "deleteLockTime": 10
            }
         """
@@ -16,15 +17,15 @@ Feature: room Services
       And With the following headers:
       | Content-type | application/json |
     When I execute the request
-     And I stored the "_id" of the response [Services1]
+      And I stored the "_id" of the response [Services1]
     Then I expect status code 200
       And I verify the expected schema for "services"
-    And I verify the data in data base "Services1"
+      And I verify the data in data base "Services1"
       And I save response
       And I verify that values used from request are included in response
 
     Given I request GET "services"
-    And With the following headers:
+      And With the following headers:
       | Content-type | application/json |
     When I execute the request
     Then I expect status code 200

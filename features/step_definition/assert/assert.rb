@@ -41,14 +41,13 @@ Then(/^I verify the data received is according previous POST response$/) do
   puts resutl_validation = Validation.validation_requestGet(value_response)
 end
 
-# norman
-And(/^I verify the expected schema for "([^"]*)"$/) do |service_name|
 
+And(/^I verify the expected schema for "([^"]*)"$/) do |service_name|
   schema_path= Utils.getPathEschema service_name
   expect(JSON::Validator.validate!(schema_path, @http_response.body)).equal?true
 
 end
-# norman
+
 And(/^I verify the data in data base "([^"]*)"$/) do |value1|
 
   id_value=Utils.getAttribute_value_from_reponse(@http_response.body,"_id",value1)

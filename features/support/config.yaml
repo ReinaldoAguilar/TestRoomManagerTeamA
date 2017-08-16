@@ -9,10 +9,9 @@ room-manager:
   urlenpoint: api/v1
   hostname_domain: server2012dc.arabitpro.local
   db: rmserver
-
   hostname: 10.28.124.134
-  admin: Administrator
-  pass: ABC123}
+#  admin: Administrator
+#  pass: ABC123}
 
 ex-change:
   url: localhost
@@ -20,6 +19,7 @@ ex-change:
   time_out: 180
   urlenpoint: api/v1
   hostname_domain: server2012dc.arabitpro.local
+  hostname: 10.28.124.134
   db: exchangeservicedb
 
 default_headers:

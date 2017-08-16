@@ -1,4 +1,4 @@
-@room
+@room @crate_subscription_exchange
 Feature: room Services
 
 
@@ -8,7 +8,7 @@ Feature: room Services
           {
             "hostname": "10.28.124.134",
             "username": "Administrator",
-            "password": "ABC123}",
+            "password": "ABC123}@",
             "deleteLockTime": 10
            }
         """
@@ -16,12 +16,12 @@ Feature: room Services
     And With the following headers:
       | Content-type | application/json |
     When I execute the request
-    And I stored the reference of a services as: [Services1]
+    And I stored the "_id" of the response [Services1]
     Then I expect status code 200
 
   @crud
   Scenario: delete a Service when was created
-    Given I request DELETE "services/Services1._id"
+    Given I request DELETE "services/Services1"
     When I execute the request
     Then I expect status code 200
     And I verify the expected schema for "services"

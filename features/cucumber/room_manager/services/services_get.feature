@@ -8,7 +8,7 @@ Feature: Test get services room manager
           {
             "hostname": "10.28.124.134",
             "username": "Administrator",
-            "password": "ABC123}",
+            "password": "ABC123}@",
             "deleteLockTime": 10
            }
         """
@@ -16,7 +16,7 @@ Feature: Test get services room manager
     And With the following headers:
       | Content-type         | application/json              |
   When I execute the request
-    And I stored the reference of a services as: [Services1]
+    And I stored the "_id" of the response [Services1]
   Then I expect status code 200
 
   @delete_service @smoke @crud

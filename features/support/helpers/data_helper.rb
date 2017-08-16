@@ -14,6 +14,7 @@ class DataHelper
     # json = parser.parse
     # json
   end
+
   def self.save_response(response)
 
     @value_response = JSON.parse(response)
@@ -45,28 +46,35 @@ class DataHelper
   def self.find_elemnt_DB(value1,id_value,values_post)
 
 
-    cursor =Mongo_client.find_list(value1,id_value,values_post)
+    consult_element =Mongo_client.find_list(value1,id_value,values_post)
 
-    return value_to_eval= JSON.parse(cursor.filter.to_json)
+    return value_to_eval= JSON.parse(consult_element.filter.to_json)
 
 
   end
   def self.build_json(json)
 
+
+    val=json
+
     hash_value={}
-    json.each do|key, value|
+    val.each do|key, value|
       res=value
 
       if(value.class==String)
-        if(value.chr=="$")
+
+        if(value[0]=="$")
+
           res=eval(value)
         end
       end
 
       hash_value.store(key, res)
+
     end
 
     return hash_value.to_json
 
   end
+
 end
