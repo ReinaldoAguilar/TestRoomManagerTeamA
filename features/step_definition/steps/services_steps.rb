@@ -3,17 +3,24 @@
 Given(/^I request (POST|PUT) "([^"]*)" with:$/) do |method, service_request, json|
 
   @http_request = ApiRestClient.get_request(method, Utils.builEndpoint(service_request))
-  ApiRestClient.body(@http_request, json)
-  @expected_response = json
 
+  value_json=JSON.parse(json.to_json)
+  value_hash =JSON.parse(value_json.gsub('=>', ':'))
+  result= DataHelper.build_json(value_hash)
+
+  ApiRestClient.body(@http_request, result)
+  @expected_response = result
+  $value=method
 end
 
 Given(/^I request (GET) "([^"]*)"$/) do |method, endpoint|
   @http_request = ApiRestClient.get_request(method, Utils.builEndpoint(endpoint))
+  $value=method
 end
 
 Given(/^I request (DELETE) "([^"]*)"$/) do |method, endpoint|
   @http_request = ApiRestClient.get_request(method, Utils.builEndpoint(endpoint))
+  $value=method
 end
 
 And(/^I execute the request$/) do

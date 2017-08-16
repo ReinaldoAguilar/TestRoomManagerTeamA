@@ -43,14 +43,17 @@ end
 
 
 And(/^I verify the expected schema for "([^"]*)"$/) do |service_name|
-  schema_path = Utils.getPathEschema service_name
-  #add helper/class/module to Schema validation
-  #def Schema.equal?(schema_path, response )
-  #  JSON::Validator.validate!(schema_path, response)
-  #end
-  #
-  expect(Schema.equal?(schema_path,@http_response.body)).to_be true
+  schema_path= Utils.getPathEschema service_name
+  expect(JSON::Validator.validate!(schema_path, @http_response.body)).equal?true
 
+end
+
+And(/^I verify the data in data base "([^"]*)"$/) do |value1|
+
+  id_value=Utils.getAttribute_value_from_reponse(@http_response.body,"_id",value1)
+  value_response= JSON.parse(@expected_response)
+  value_to_eval =DataHelper.find_elemnt_DB(value1,id_value,value_response)
+  expect(value_response).to include(value_to_eval)
 end
 
 
