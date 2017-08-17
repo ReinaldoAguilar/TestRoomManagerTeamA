@@ -20,4 +20,12 @@ module Mongo_client
     Mongo_client.dropdatabase
     Mongo_client.close_connection
   end
+
+  def Mongo_client.find_list(service,id,hash_value)
+    hash_value.store("_id","#{id}")
+    mongo_db=Mongo_client.initialize
+    values_find= mongo_db[:"#{service}"].find(hash_value)
+    Mongo_client.close_connection
+    return values_find
+  end
 end

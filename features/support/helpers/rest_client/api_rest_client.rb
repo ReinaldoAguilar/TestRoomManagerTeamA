@@ -3,9 +3,7 @@ module ApiRestClient
 
   def ApiRestClient.get_request(method, url)
     request = nil
-    p $port
     url = "#{$protocol}#{$base_url}:#{$port}/#{$urlenpoint}/#{url}"
-    p url
     uri = URI.parse(url)
 
     case method
