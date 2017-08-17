@@ -10,6 +10,5 @@ module Room
     $urlenpoint = configuration['room-manager']['urlenpoint']
     $hostname_domain = configuration['room-manager']['hostname_domain']
     $db  = configuration['room-manager']['db']
-    $ip_hostname  = configuration['room-manager']['hostname']
   end
 end

@@ -38,6 +38,7 @@ AfterConfiguration do |config|
 
   # read config file
   configuration = load_app_config_file('config.yaml')
+
   #  default
   $exchange_credentials = configuration['default_headers']['exchange_credentials']
   $exchange_calendar = configuration['default_headers']['exchange_calendar']

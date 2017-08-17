@@ -52,13 +52,14 @@ Before('@delete_rooms') do
   Mongo_client.drop('rooms')
   Mongo_client.close_connection
 end
+Before('@delete_services') do
+  Mongo_client.initialize
+  Mongo_client.drop('services')
+  Mongo_client.close_connection
+end
 
 #exchange hooks
 Before('@create_subscription') do
-  # json =
-  # ApiRestClient.get_request('POST', "subscriptions")
-  # ApiRestClient.body(@http_request, json)
-  # ApiRestClient.execute_request(@http_request)
   case $type
     when "exchange"
       Conexion_Api_Factory_Enum.factory_connection("room")
@@ -98,15 +99,9 @@ Before('@create_subscription') do
 
 end
 
-
-
 #room hooks
 Before('@crate_service_room') do
   Conexion_Api_Factory_Enum.factory_connection("room")
-  # json =
-  # ApiRestClient.get_request('POST', "subscriptions")
-  # ApiRestClient.body(@http_request, json)
-  # ApiRestClient.execute_request(@http_request)
   steps %Q{
              Given I request POST "services" with:
                 """

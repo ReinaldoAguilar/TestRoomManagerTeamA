@@ -1,6 +1,13 @@
-Feature: Delete service
+@exchange @deletebd @create_subscription  @crate_service_room
+Feature: Delete service by a ID specify
+  @functional @negative
+  Scenario Outline: Delete request providing an invalid format services
 
-  Scenario: Delete Service
-    Given I request DELETE "services/598e11d7e2aeff0730b29669"
-    When I execute the request
-    Then I expect status code 200
+    When I request DELETE "services/<serviceId>"
+    And I execute the request
+    Then I expect status code <codes>
+
+    Examples:
+      | serviceId            | codes |
+      | 1233Hfdfd550f        | 400   |
+      | 53344343dfsdfssdfdsk | 400   |

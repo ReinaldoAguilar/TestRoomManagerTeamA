@@ -7,6 +7,5 @@ module Exchange
     $urlenpoint = configuration['ex-change']['urlenpoint']
     $hostname_domain = configuration['ex-change']['hostname_domain']
     $db  = configuration['ex-change']['db']
-    $ip_hostname  = configuration['ex-change']['hostname']
   end
 end
