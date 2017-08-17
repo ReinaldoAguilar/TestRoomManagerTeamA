@@ -1,6 +1,7 @@
 @room
-Feature: Update Meetings
+Feature: Update Meetings Room Manager
 
+  @crud @positive
   Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
@@ -29,6 +30,7 @@ Feature: Update Meetings
     Then I expect status code 200
 
 
+  @crud @positive
   Scenario: Update a Meeting
     Given I request PUT "meetings/Meetings1" with:
       """

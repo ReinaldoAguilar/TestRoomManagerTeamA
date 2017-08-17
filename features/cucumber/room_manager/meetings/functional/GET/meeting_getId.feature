@@ -1,5 +1,5 @@
 @room
-Feature: Update Meetings
+Feature: Get a Specific Meeting from Room Manager
 
   Background: Create a Meeting
     Given I request POST "meetings" with:
@@ -27,18 +27,33 @@ Feature: Update Meetings
     When I execute the request
     And I stored the "_id" of the response [Meetings1]
 
-
+  @functional @negative
   Scenario Outline: Get specific meeting
     Given I request GET "meetings/<id>"
     And With the following headers:
-      | Content-type         | <content-type> |
-      | Exchange-credentials | <credentials>  |
+      | Content-type | <content-type> |
+      | Credentials  | <credentials>  |
     When I execute the request
     Then I expect status code <code>
+    And the JSON should be:
+      """
+          {
+            "name": <name>,
+             "description": <description>
+          }
+      """
 
     Examples:
-      | id              | content-type     | credentials                  | code |
-      | Meetings1       | application/json | sfsdfsdfsdfsdfsdfsdfsdffsdfs | 404  |
-      | 345345345423423 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 400  |
-      |                 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 200  |
-      | Meetings1       | application/json |                              | 404  |
+      | id              | content-type     | credentials                  | code | name                        | description                                                                                   |
+      | Meetings1       | application/json | sfsdfsdfsdfsdfsdfsdfsdffsdfs | 401  | "UnauthorizedExchangeError" | "The provided credentials are incorrect."                                                     |
+      | 345345345423423 | application/json | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 | 400  | "InvalidIdFormatError"      | "MeetingId argument passed in must be a String of 12 bytes or a string of 24 hex characters." |
+
+
+  @functional @positive
+  Scenario: Get specific meeting
+    Given I request GET "meetings/Meetings1"
+    And With the following headers:
+      | Content-type | application/json             |
+      | Credentials  | QWRtaW5pc3RyYXRvcjpBQkMxMjN9 |
+    When I execute the request
+    Then I expect status code 200

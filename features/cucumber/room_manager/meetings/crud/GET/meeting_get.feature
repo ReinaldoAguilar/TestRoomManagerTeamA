@@ -1,5 +1,7 @@
 @room
-Feature: Create Meeting
+Feature: Get Meetings Room Manager
+
+  @crud @positive
   Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
@@ -27,7 +29,8 @@ Feature: Create Meeting
     And I stored the "_id" of the response [Services1]
     Then I expect status code 200
 
-  @delete_service
+
+  @crud @positive
   Scenario: Get Meetings
     Given I request GET "meetings" with data :
       | owner | Administrator@arabitpro.local |

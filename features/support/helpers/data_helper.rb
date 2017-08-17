@@ -53,8 +53,6 @@ class DataHelper
 
   end
   def self.build_json(json)
-
-
     val=json
 
     hash_value={}
