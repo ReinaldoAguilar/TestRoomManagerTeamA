@@ -1,11 +1,9 @@
-
 module ApiRestClient
 
   def ApiRestClient.get_request(method, url)
+
     request = nil
-    p $port
     url = "#{$protocol}#{$base_url}:#{$port}/#{$urlenpoint}/#{url}"
-    p url
     uri = URI.parse(url)
 
     case method
@@ -20,20 +18,24 @@ module ApiRestClient
       else
         puts "The method was not found, insert a correct method"
     end
+
     return request
   end
 
   def ApiRestClient.body(request, body)
+
     request.body = body
   end
 
   def ApiRestClient.add_headers(request, values)
-    values.each do |k,v|
-      request.add_field(k,v)
+
+    values.each do |k, v|
+      request.add_field(k, v)
     end
   end
 
   def ApiRestClient.execute_request(http_request)
+
     http_connection = Connection.get_connection
     http_connection.request(http_request)
   end

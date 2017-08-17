@@ -1,9 +1,10 @@
 module Room
 
   def Room.initialize
+
     # read config file
     configuration = load_app_config_file('config.yaml')
-    # Load application configuration parameters
+
     $base_url = configuration['room-manager']['url']
     $time_out = configuration['room-manager']['time_out']
     $port = configuration['room-manager']['port']

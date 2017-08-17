@@ -2,7 +2,7 @@
 Feature: Delete Meeting Exchange Service
 
   @crud @positive
-  Background: Create a Meeting
+  Scenario: Create a Meeting
     Given I request POST "meetings" with:
       """
       {

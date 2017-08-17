@@ -1,7 +1,7 @@
 @room @deletebd @create_subscription  @crate_service_room
 Feature: rooms
 
-  @smoke
+  @smoke @delete_rooms
   Scenario Outline: Get all rooms with status free
     Given I request GET "rooms" with data :
       | from   | 2016-02-01T00:00:00.000Z |
